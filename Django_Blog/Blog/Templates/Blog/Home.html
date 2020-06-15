@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Blog Home!</h1>
-</body>
-</html>
+{% extends "Blog/Base.html"%}
+
+{% block content %}
+    {% for i in post %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ i.aurthor }}</a>
+                    <small class="text-muted">{{ i.Date_Posted }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ i.Title }}</a></h2>
+                <p class="article-content">{{ i.Content }}</p>
+             </div>
+        </article>
+    {% endfor  %}
+{% endblock content %}
+
